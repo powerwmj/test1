@@ -1,0 +1,52 @@
+@import '_common';
+
+main {
+    width: $p100;
+    .visual {
+        width: $p100; position: relative; text-align: center;
+        img {vertical-align: middle;}
+    }
+
+    section.service {
+        padding: 145px 0;
+        h2 {
+            font-size: $h2; color: #222; padding-bottom:110px; text-transform: uppercase; text-align: center;
+            small {font-size: $small; color: #777; display: block; padding-top: 28px; font-weight: normal; text-transform: capitalize;}
+        }
+        ul {
+            @include flex(space-between,center,row,wrap); width: 70%; margin: 0 auto;
+            //display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; 
+            li {
+                width: 30%; text-align: center;
+                span {display: block; width: 90px; height: 90px; border-radius: 50%; border: 2px solid #fed136; margin: 0 auto 35px auto;}
+                b {font-size: 25px; margin-bottom: 25px; display: inline-block;}
+                p {font-size: 18px; color: #777;}
+            }
+            $icUrl : (1:'../img/ic_01.png', 2:'../img/ic_02.png', 3:'../img/ic_03.png');
+            @each $k, $v in $icUrl {
+                li:nth-child(#{$k}) > span {background: url(#{$v}) 50% 50% / 45px no-repeat;}
+            }
+        }
+    }
+
+    section.about {
+        padding: 155px 0 170px 0; background: #f2f2f1;
+        .info_w {
+            @include flex(center,flex-start,row,nowrap); width: 70%; margin: 0 auto;
+            p {margin-right: 100px;}
+            .info {
+                h2 {
+                    font-size: $h2; color: #222; margin-bottom: 75px; text-transform: uppercase;
+                    small {font-size: 18px; color: #919191; display: block; padding-top: 28px; font-weight: normal; text-transform: capitalize;}
+                }
+                ul li span {display: block; font-weight: bold;}
+                ul li span {font-size: 18px; color: #566366; text-transform: uppercase; margin-bottom: 14px;}
+                ul li p {width: $p100; height: $p100; overflow: hidden; background: #ddd; margin-bottom: 16px;}
+                ul li p span {background: #fed136; color: #fff; text-align: right; margin-bottom: 0; height: 30px; line-height: 30px; padding-right: 10px; transform: translateX(-100%); animation: bar 1s forwards ease-in;}
+            }
+        }
+    }
+}
+@keyframes bar {
+    100% {transform: translateX(0);}
+}

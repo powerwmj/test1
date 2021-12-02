@@ -1,0 +1,106 @@
+// _common.scss
+//@charset "utf-8"
+* {box-sizing: border-box; font-family: 'MAaruBuri';}
+body {margin: 0;}
+h1,h2,h3,h4,h5,h6, figure, p {margin: 0;}
+a {text-decoration: none;}
+ul, li {list-style: none; padding: 0; margin: 0;}
+img {vertical-align: middle;}
+table {border-collapse: collapse;}
+
+
+@font-face {
+    font-family: 'MAaruBuri';
+    src: url('../font/MaruBuri-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('../font/MaruBuri-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('../font/MaruBuri-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('../font/MaruBuri-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MaruBuri';
+    src: url('../font/MaruBuri-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+.w70p {width: 70%;}
+.w80p {width: 80%;}
+.w90p {width: 90%;}
+
+
+@mixin flex($jc,$ai,$fd,$fw) {
+    display: flex; 
+    justify-content: $jc;//flex-start
+    align-items: $ai; //stretch
+    flex-direction: $fd; //row
+    flex-wrap: $fw //nowrap
+}
+
+$tb100 : 100px 0;
+$h2 : 55px;
+$small : 22px;
+$c_white : #fff;
+$p100 : 100%;
+
+header {
+    position: fixed; left: 0; top: 0; width: $p100; padding: 30px 0; z-index: 1;
+    >div {
+        width: 70%; margin: 0 auto;  position: relative;
+        @include flex(space-between,center,center,nowrap);
+        //display: flex; justify-content: space-between; align-items: center;
+        a {color: #fff;}
+        h1 {
+            a {background: url('../img/logo.png') no-repeat; font-size: 0; width: 96px; height: 36px; display: inline-block;}
+        }
+        nav {
+            flex-grow: 1; text-align: right;
+            a {display:inline-block; padding: 0 2%;}
+        }
+        .trigger-menu {
+            width: 26px; height: 16px; position: absolute; right: 0; top: 30%; display: none; cursor: pointer;
+            span {width: $p100; border-bottom: 2px solid $c_white; position: absolute; left: 0; top: 50%;
+            &:nth-child(1) {transform: translateY(-400%);}
+            &:nth-child(3) {transform: translateY(400%);}
+            }
+        }
+    }
+}
+
+.contact {
+    background: #222; color: $c_white; text-align: center; padding: $tb100;
+    h2 {
+        font-size: $h2; margin-bottom: 110px; text-transform: uppercase;
+        small {font-size: $small; display: block; padding-top: 28px; font-weight: normal; text-transform: capitalize;}
+    }
+    div {
+        input {padding: 9px 40px; border: none; display: inline-block; vertical-align: middle; width: 30%; font-size: 25px;}
+        a {background: #fed136; color: $c_white; padding: 16px 40px; display: inline-block; vertical-align: middle;}
+    }
+}
+
+footer {padding: $tb100; text-align: center; color: #8f8f8f; font-size: 22px;}
